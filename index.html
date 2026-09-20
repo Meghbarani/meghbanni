@@ -3,553 +3,198 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Aanchal — Handloom Sarees</title>
-<!--
-  ─────────────────────────────────────────────────────────────
-  HOW TO MAKE THIS YOURS
-  1. Brand name: find-and-replace "Aanchal" with your shop name.
-  2. Phone: find-and-replace 919999999999 with your WhatsApp number
-     (country code + number, no +, no spaces).
-  3. Photos: every block marked <!-- PHOTO --> is a coloured stand-in.
-     Replace the <div class="swatch ..."></div> with
-     <img src="your-photo.jpg" alt="..." class="shot">
-  4. Prices, weave names and stories: edit the text directly.
-  ─────────────────────────────────────────────────────────────
--->
+<title>Meghbanni — Sarees</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-/* ── tokens ─────────────────────────────────────────────── */
 :root{
-  --khadi:#F0EADC;
-  --surface:#FBF8F2;
-  --surface-2:#E7DECB;
-  --ink:#1C1726;
-  --ink-soft:#57506A;
-  --madder:#97262B;
-  --zari:#B08526;
-  --indigo:#2C4A73;
-  --line:rgba(28,23,38,.16);
-  --shadow:0 18px 40px -28px rgba(28,23,38,.55);
-
-  --display:'Marcellus', 'Georgia', 'Times New Roman', serif;
-  --text:'Karla', 'Helvetica Neue', Arial, sans-serif;
-
-  --wrap:1120px;
+  --khadi:#F0EADC; --surface:#FBF8F2; --ink:#1C1726; --ink-soft:#57506A;
+  --madder:#97262B; --zari:#B08526; --line:rgba(28,23,38,.16);
+  --display:'Marcellus',Georgia,serif; --text:'Karla',Arial,sans-serif;
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px);
   padding-bottom:env(safe-area-inset-bottom,0px);
 }
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --khadi:#15121D;
-    --surface:#1B1726;
-    --surface-2:#272031;
-    --ink:#EFE8DA;
-    --ink-soft:#B3A9BE;
-    --madder:#D0585B;
-    --zari:#D9AE4E;
-    --indigo:#7FA6D6;
-    --line:rgba(239,232,218,.18);
-    --shadow:0 18px 40px -28px rgba(0,0,0,.8);
-  }
-}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --khadi:#15121D; --surface:#1B1726; --ink:#EFE8DA; --ink-soft:#B3A9BE;
+  --madder:#D0585B; --zari:#D9AE4E; --line:rgba(239,232,218,.18);
+}}
 :root[data-theme="dark"]{
-  --khadi:#15121D; --surface:#1B1726; --surface-2:#272031;
-  --ink:#EFE8DA; --ink-soft:#B3A9BE; --madder:#D0585B;
-  --zari:#D9AE4E; --indigo:#7FA6D6; --line:rgba(239,232,218,.18);
-  --shadow:0 18px 40px -28px rgba(0,0,0,.8);
+  --khadi:#15121D; --surface:#1B1726; --ink:#EFE8DA; --ink-soft:#B3A9BE;
+  --madder:#D0585B; --zari:#D9AE4E; --line:rgba(239,232,218,.18);
 }
 *,*::before,*::after{box-sizing:inherit}
-html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
-body{
-  margin:0;background:var(--khadi);color:var(--ink);
-  font-family:var(--text);font-size:17px;line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-}
-img,.shot{max-width:100%;display:block}
-a{color:inherit}
-:focus-visible{outline:2px solid var(--madder);outline-offset:3px;border-radius:2px}
-.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 20px}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--khadi);color:var(--ink);font-family:var(--text);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--madder);outline-offset:3px}
+.wrap{max-width:1020px;margin:0 auto;padding:0 18px}
 
-/* ── the border: this page's one signature device ───────── */
-.border-band{height:0;position:relative}
-.border-band::before,.border-band::after{content:"";display:block}
-.border-band::before{height:5px;background:var(--zari);opacity:.85}
-.border-band::after{
-  height:11px;
-  background-image:
-    linear-gradient(135deg,var(--zari) 25%,transparent 25.5%),
-    linear-gradient(225deg,var(--zari) 25%,transparent 25.5%);
-  background-size:14px 14px;opacity:.85;
-}
-.zari-rule{
-  height:3px;border:0;margin:0;
-  background:repeating-linear-gradient(90deg,var(--zari) 0 6px,transparent 6px 12px);
-  opacity:.7;
-}
+/* gold temple border, the one decorative device */
+.band{height:0}
+.band::before{content:"";display:block;height:4px;background:var(--zari);opacity:.85}
+.band::after{content:"";display:block;height:10px;opacity:.85;
+  background-image:linear-gradient(135deg,var(--zari) 25%,transparent 25.5%),
+                   linear-gradient(225deg,var(--zari) 25%,transparent 25.5%);
+  background-size:13px 13px}
 
-/* ── header ─────────────────────────────────────────────── */
-header{
-  position:sticky;top:env(safe-area-inset-top,0px);z-index:40;
-  background:color-mix(in srgb,var(--khadi) 92%,transparent);
-  backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
-}
-.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
-.brand{font-family:var(--display);font-size:25px;letter-spacing:.06em;text-decoration:none;line-height:1}
-.brand span{display:block;font-family:var(--text);font-size:10px;letter-spacing:.34em;color:var(--ink-soft);margin-top:4px}
-nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:15px}
-nav a{text-decoration:none;color:var(--ink-soft);padding:6px 0;border-bottom:1px solid transparent}
-nav a:hover{color:var(--ink);border-bottom-color:var(--madder)}
-.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:4px;color:inherit;font:inherit;padding:8px 12px;cursor:pointer}
-@media (max-width:820px){
-  nav{display:none}
-  nav.open{display:block;position:absolute;left:0;right:0;top:68px;background:var(--surface);border-bottom:1px solid var(--line)}
-  nav.open ul{flex-direction:column;gap:0;padding:8px 20px 18px}
-  nav.open a{display:block;padding:12px 0;border-bottom:1px solid var(--line)}
-  .menu-btn{display:block}
-}
+header{padding:26px 0 20px;text-align:center}
+header h1{font-family:var(--display);font-weight:400;font-size:clamp(30px,7vw,44px);margin:0;letter-spacing:.04em}
+header p{margin:8px 0 0;color:var(--ink-soft);font-size:16px}
 
-/* ── hero ───────────────────────────────────────────────── */
-.hero{padding:64px 0 72px}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
-.hero h1{
-  font-family:var(--display);font-weight:400;
-  font-size:clamp(40px,6.4vw,68px);line-height:1.04;margin:0 0 22px;
-}
-.hero p{max-width:46ch;color:var(--ink-soft);font-size:18px;margin:0 0 30px}
-.actions{display:flex;flex-wrap:wrap;gap:14px}
-.btn{
-  display:inline-block;text-decoration:none;font-size:15px;font-weight:500;
-  padding:14px 26px;border:1px solid var(--madder);cursor:pointer;font-family:var(--text);
-}
-.btn-solid{background:var(--madder);color:#FFF8EE}
-.btn-solid:hover{background:#7d1f23}
-.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
-.btn-ghost:hover{border-color:var(--madder)}
-.hero-stack{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.hero-stack .drape:first-child{grid-column:span 2;aspect-ratio:16/10}
+/* shop photo */
+.shopshot{margin:22px 0 0;aspect-ratio:16/9;overflow:hidden;background:var(--surface)}
+.shopshot img{width:100%;height:100%;object-fit:cover}
 
-/* fabric stand-ins — swap for photos */
-.drape{position:relative;aspect-ratio:3/4;overflow:hidden;box-shadow:var(--shadow)}
-.swatch{position:absolute;inset:0}
-.swatch::after{
-  content:"";position:absolute;left:0;right:0;bottom:0;height:22%;
-  background:
-    repeating-linear-gradient(90deg,rgba(255,240,200,.75) 0 3px,transparent 3px 9px),
-    linear-gradient(0deg,rgba(0,0,0,.28),transparent);
-  border-top:3px solid rgba(255,235,190,.8);
-}
-.s-kanji{background:linear-gradient(150deg,#8E1B2E,#C2415A 45%,#7A1226)}
-.s-banarasi{background:linear-gradient(150deg,#1F3C63,#3E6EA8 50%,#16294A)}
-.s-jamdani{background:linear-gradient(150deg,#E8E2D2,#CFC7AF 60%,#B9AE92)}
-.s-chanderi{background:linear-gradient(150deg,#D8A24A,#F0D08A 55%,#B87E2A)}
-.s-tussar{background:linear-gradient(150deg,#6E5232,#A57C49 55%,#4E3921)}
-.s-cotton{background:linear-gradient(150deg,#2C5E4F,#4E8A73 55%,#1D4438)}
-.s-ikat{background:linear-gradient(150deg,#4A2C62,#7C5498 55%,#341E47)}
-.s-linen{background:linear-gradient(150deg,#9A9DA6,#C4C7CE 55%,#7C7F88)}
-.shot{width:100%;height:100%;object-fit:cover}
-.tag{
-  position:absolute;top:12px;left:12px;z-index:2;
-  background:color-mix(in srgb,var(--khadi) 88%,transparent);
-  color:var(--ink);font-size:11px;letter-spacing:.14em;padding:5px 10px;
-}
+h2{font-family:var(--display);font-weight:400;font-size:26px;margin:44px 0 6px;text-align:center}
+.sub{text-align:center;color:var(--ink-soft);margin:0 0 26px;font-size:15px}
 
-/* ── sections ───────────────────────────────────────────── */
-section{padding:74px 0}
-.section-head{max-width:60ch;margin:0 0 38px}
-.section-head h2{font-family:var(--display);font-weight:400;font-size:clamp(28px,4vw,42px);margin:0 0 12px;line-height:1.15}
-.section-head p{margin:0;color:var(--ink-soft)}
-.alt{background:var(--surface)}
+/* saree grid */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding-bottom:10px}
+@media (max-width:860px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:620px){.grid{grid-template-columns:repeat(2,1fr);gap:14px}}
+.card{background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column}
+.pic{position:relative;aspect-ratio:3/4;overflow:hidden;background:linear-gradient(150deg,#8E1B2E,#C2415A 50%,#7A1226)}
+.pic img{width:100%;height:100%;object-fit:cover}
+.sold{position:absolute;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;
+  background:rgba(28,23,38,.55);color:#FFF6E6;font-family:var(--display);font-size:19px;letter-spacing:.1em}
+.card-body{padding:12px 13px 14px;display:flex;flex-direction:column;gap:4px;flex:1}
+.card h3{font-family:var(--display);font-weight:400;font-size:17px;margin:0;line-height:1.3}
+.price{font-size:16px;font-weight:700;margin:0}
+.ask{margin-top:auto;padding-top:10px;font-size:14px;color:var(--madder);text-decoration:none;border-bottom:1px solid transparent;align-self:flex-start}
+.ask:hover{border-bottom-color:var(--madder)}
 
-.weaves{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.weave{background:var(--khadi);border:1px solid var(--line)}
-.weave .drape{aspect-ratio:4/3;box-shadow:none}
-.weave-body{padding:18px 20px 22px}
-.weave h3{font-family:var(--display);font-weight:400;font-size:22px;margin:0 0 6px}
-.weave p{margin:0;font-size:15px;color:var(--ink-soft)}
-
-/* catalogue */
-.filters{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 30px}
-.chip{
-  font:inherit;font-size:14px;padding:9px 18px;cursor:pointer;
-  background:transparent;color:var(--ink-soft);border:1px solid var(--line);
-}
-.chip[aria-pressed="true"]{background:var(--ink);color:var(--khadi);border-color:var(--ink)}
-.pieces{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-.piece h3{font-family:var(--display);font-weight:400;font-size:19px;margin:14px 0 4px}
-.piece .meta{font-size:14px;color:var(--ink-soft);margin:0}
-.piece .price{font-size:15px;margin:8px 0 0}
-.piece .drape{aspect-ratio:3/4}
-.piece[hidden]{display:none}
-
-/* process — a real sequence, so it is numbered */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;counter-reset:step}
-.step{counter-increment:step;padding-top:18px;border-top:2px solid var(--zari)}
-.step::before{content:counter(step,decimal-leading-zero);font-family:var(--display);font-size:15px;color:var(--zari)}
-.step h3{font-family:var(--display);font-weight:400;font-size:21px;margin:8px 0 8px}
-.step p{margin:0;color:var(--ink-soft);font-size:15px}
-
-/* voices */
-.voices{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.voice{background:var(--khadi);padding:26px 24px;border-left:3px solid var(--madder)}
-.voice p{margin:0 0 14px;font-size:16px}
-.voice cite{font-style:normal;font-size:14px;color:var(--ink-soft)}
-
-/* enquiry */
-.enquire{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start}
-form{display:grid;gap:16px}
-label{display:grid;gap:7px;font-size:14px;color:var(--ink-soft)}
-input,select,textarea{
-  font:inherit;font-size:16px;color:var(--ink);background:var(--khadi);
-  border:1px solid var(--line);padding:12px 14px;width:100%;
-}
-textarea{min-height:104px;resize:vertical}
-.hint{font-size:14px;color:var(--ink-soft);margin:4px 0 0}
-.contact-list{list-style:none;padding:0;margin:22px 0 0;font-size:16px;display:grid;gap:10px}
-.contact-list a{text-decoration:none;border-bottom:1px solid var(--zari)}
-
-footer{background:var(--ink);color:var(--khadi);padding:48px 0 30px}
-:root[data-theme="dark"] footer, :root:not([data-theme="light"]) footer{color:var(--khadi)}
-footer .cols{display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between}
-footer h4{font-family:var(--display);font-weight:400;font-size:20px;margin:0 0 10px}
-footer p,footer li{color:rgba(240,234,220,.72);font-size:15px;margin:0}
-footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
-footer a{color:rgba(240,234,220,.9)}
-.fine{margin-top:34px;padding-top:18px;border-top:1px solid rgba(240,234,220,.2);font-size:13px;color:rgba(240,234,220,.6)}
-
-@media (max-width:980px){
-  .hero-grid,.enquire{grid-template-columns:1fr;gap:34px}
-  .weaves,.pieces,.steps,.voices{grid-template-columns:repeat(2,1fr)}
-}
-@media (max-width:620px){
-  body{font-size:16px}
-  section{padding:56px 0}
-  .weaves,.steps,.voices{grid-template-columns:1fr}
-  .pieces{grid-template-columns:repeat(2,1fr);gap:16px}
-  .hero{padding:44px 0 56px}
-}
+/* contact */
+.contact{background:var(--surface);margin-top:52px;padding:38px 0 42px;text-align:center}
+.contact h2{margin-top:0}
+.contact p{margin:0 0 18px;color:var(--ink-soft)}
+.btn{display:inline-block;background:var(--madder);color:#FFF8EE;text-decoration:none;font-size:16px;font-weight:500;padding:14px 30px}
+.btn:hover{background:#7d1f23}
+.lines{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:8px;font-size:16px}
+.lines a{color:inherit;text-decoration:none;border-bottom:1px solid var(--zari)}
+footer{padding:22px 0 30px;text-align:center;font-size:13px;color:var(--ink-soft)}
 </style>
 </head>
 <body>
 
-<header>
-  <div class="wrap bar">
-    <a class="brand" href="#top">Aanchal<span>HANDLOOM</span></a>
-    <nav id="nav">
-      <ul>
-        <li><a href="#weaves">Weaves</a></li>
-        <li><a href="#collection">Collection</a></li>
-        <li><a href="#how">How to order</a></li>
-        <li><a href="#enquire">Enquire</a></li>
-      </ul>
-    </nav>
-    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
-  </div>
+<div class="band" aria-hidden="true"></div>
+
+<header class="wrap">
+  <h1>Meghbanni</h1>
+  <p>Sarees available now</p>
+  <!-- SHOP PHOTO: put your shop or a drape photo at images/shop.jpg -->
+  <div class="shopshot"><img src="images/shop.jpg" alt="Our collection" onerror="this.style.display='none'"></div>
 </header>
-<div class="border-band" aria-hidden="true"></div>
 
-<main id="top">
-
-<!-- HERO -->
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <h1>Sarees woven by hand, sold without a middleman.</h1>
-      <p>We buy directly from weaving families in Kanchipuram, Varanasi and Shantipur, and send the saree to you with the weaver's name on the tag. Nothing here is power-loom.</p>
-      <div class="actions">
-        <a class="btn btn-solid" href="#collection">See what's in stock</a>
-        <a class="btn btn-ghost" href="#enquire">Ask about a saree</a>
-      </div>
-    </div>
-    <div class="hero-stack">
-      <!-- PHOTO: replace each .swatch div with <img class="shot" src="..." alt="..."> -->
-      <div class="drape"><div class="swatch s-kanji"></div><span class="tag">Kanjivaram silk</span></div>
-      <div class="drape"><div class="swatch s-jamdani"></div></div>
-      <div class="drape"><div class="swatch s-banarasi"></div></div>
-    </div>
-  </div>
-</section>
-
-<hr class="zari-rule">
-
-<!-- WEAVES -->
-<section id="weaves" class="alt">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Six weaves, six places</h2>
-      <p>Each one behaves differently on the body. If you are not sure what suits you, send us a message and we will talk it through.</p>
-    </div>
-    <div class="weaves">
-      <article class="weave">
-        <div class="drape"><div class="swatch s-kanji"></div></div>
-        <div class="weave-body"><h3>Kanjivaram</h3><p>Heavy mulberry silk from Tamil Nadu, with the border woven separately and joined by hand. Holds a pleat for years.</p></div>
-      </article>
-      <article class="weave">
-        <div class="drape"><div class="swatch s-banarasi"></div></div>
-        <div class="weave-body"><h3>Banarasi</h3><p>Varanasi silk with dense zari work. The katan ones are light enough for a long evening.</p></div>
-      </article>
-      <article class="weave">
-        <div class="drape"><div class="swatch s-jamdani"></div></div>
-        <div class="weave-body"><h3>Jamdani</h3><p>Fine Bengal cotton where the motif is added thread by thread at the loom. Takes weeks for one piece.</p></div>
-      </article>
-      <article class="weave">
-        <div class="drape"><div class="swatch s-chanderi"></div></div>
-        <div class="weave-body"><h3>Chanderi</h3><p>Silk-cotton from Madhya Pradesh. Sheer, glassy, and the easiest of the lot to wear in summer.</p></div>
-      </article>
-      <article class="weave">
-        <div class="drape"><div class="swatch s-tussar"></div></div>
-        <div class="weave-body"><h3>Tussar</h3><p>Wild silk with a grainy texture and a warm natural gold. Good for block prints and hand painting.</p></div>
-      </article>
-      <article class="weave">
-        <div class="drape"><div class="swatch s-cotton"></div></div>
-        <div class="weave-body"><h3>Handloom cotton</h3><p>Everyday sarees in khadi and mul. Soften with every wash and cost the least to keep.</p></div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- COLLECTION -->
-<section id="collection">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>In stock this week</h2>
-      <p>One piece of each — a handloom saree is never repeated exactly. Prices include the blouse piece and delivery within India.</p>
-    </div>
-
-    <div class="filters" role="group" aria-label="Filter by weave">
-      <button class="chip" data-filter="all" aria-pressed="true">Everything</button>
-      <button class="chip" data-filter="silk" aria-pressed="false">Silk</button>
-      <button class="chip" data-filter="cotton" aria-pressed="false">Cotton</button>
-      <button class="chip" data-filter="festive" aria-pressed="false">Wedding &amp; festive</button>
-      <button class="chip" data-filter="daily" aria-pressed="false">Everyday</button>
-    </div>
-
-    <div class="pieces" id="pieces">
-      <article class="piece" data-cat="silk festive">
-        <div class="drape"><div class="swatch s-kanji"></div></div>
-        <h3>Arakku red Kanjivaram</h3>
-        <p class="meta">Pure silk · gold zari temple border</p>
-        <p class="price">₹28,500</p>
-      </article>
-      <article class="piece" data-cat="silk festive">
-        <div class="drape"><div class="swatch s-banarasi"></div></div>
-        <h3>Midnight blue Banarasi</h3>
-        <p class="meta">Katan silk · jangla buti</p>
-        <p class="price">₹19,800</p>
-      </article>
-      <article class="piece" data-cat="cotton daily">
-        <div class="drape"><div class="swatch s-jamdani"></div></div>
-        <h3>Ivory Dhakai Jamdani</h3>
-        <p class="meta">Fine cotton · geometric buti</p>
-        <p class="price">₹9,400</p>
-      </article>
-      <article class="piece" data-cat="silk daily">
-        <div class="drape"><div class="swatch s-chanderi"></div></div>
-        <h3>Haldi Chanderi</h3>
-        <p class="meta">Silk cotton · zari checks</p>
-        <p class="price">₹6,200</p>
-      </article>
-      <article class="piece" data-cat="silk festive">
-        <div class="drape"><div class="swatch s-tussar"></div></div>
-        <h3>Ghicha Tussar, hand painted</h3>
-        <p class="meta">Wild silk · Madhubani pallu</p>
-        <p class="price">₹12,700</p>
-      </article>
-      <article class="piece" data-cat="cotton daily">
-        <div class="drape"><div class="swatch s-cotton"></div></div>
-        <h3>Bottle green mul cotton</h3>
-        <p class="meta">Khadi mul · woven stripe</p>
-        <p class="price">₹3,100</p>
-      </article>
-      <article class="piece" data-cat="silk festive">
-        <div class="drape"><div class="swatch s-ikat"></div></div>
-        <h3>Pochampally ikat</h3>
-        <p class="meta">Silk · double ikat, aubergine</p>
-        <p class="price">₹15,600</p>
-      </article>
-      <article class="piece" data-cat="cotton daily">
-        <div class="drape"><div class="swatch s-linen"></div></div>
-        <h3>Grey handloom linen</h3>
-        <p class="meta">100 count linen · silver border</p>
-        <p class="price">₹5,900</p>
-      </article>
-    </div>
-    <p class="hint" id="count"></p>
-  </div>
-</section>
-
-<!-- HOW TO ORDER -->
-<section id="how" class="alt">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>How an order works</h2>
-      <p>No cart, no checkout. You tell us what you want, we send real photos and a video of the drape, and only then do you pay.</p>
-    </div>
-    <div class="steps">
-      <div class="step">
-        <h3>Tell us the occasion</h3>
-        <p>Message us on WhatsApp with the event, your budget and a colour you like. Nothing more is needed to start.</p>
-      </div>
-      <div class="step">
-        <h3>See it on video</h3>
-        <p>We film the actual piece in daylight so you know the true colour, and send the weaver's details with it.</p>
-      </div>
-      <div class="step">
-        <h3>Pay and it ships</h3>
-        <p>UPI or bank transfer. Dispatch the same day, insured, with a seven-day return if the saree is unworn.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- VOICES -->
-<section>
-  <div class="wrap">
-    <div class="section-head"><h2>From customers</h2></div>
-    <div class="voices">
-      <blockquote class="voice">
-        <p>Wore the red Kanjivaram for my sister's wedding and three people asked where it was from. The colour was exactly what the video showed.</p>
-        <cite>Lakshmi R., Chennai</cite>
-      </blockquote>
-      <blockquote class="voice">
-        <p>I wanted a saree under five thousand that I could wear to work. They sent four options and were honest that two would crease badly.</p>
-        <cite>Sunita M., Pune</cite>
-      </blockquote>
-      <blockquote class="voice">
-        <p>Shipped to Dubai in six days. The tag had the weaver's name on it, which my mother found very moving.</p>
-        <cite>Nadia K., Dubai</cite>
-      </blockquote>
-    </div>
-  </div>
-</section>
-
-<!-- ENQUIRE -->
-<section id="enquire" class="alt">
-  <div class="wrap enquire">
-    <div>
-      <div class="section-head">
-        <h2>Tell us what you are looking for</h2>
-        <p>Fill this in and it opens WhatsApp with your message ready to send. Or write to us directly.</p>
-      </div>
-      <ul class="contact-list">
-        <li>WhatsApp <a href="https://wa.me/919999999999">+91 99999 99999</a></li>
-        <li>Email <a href="mailto:hello@example.com">hello@example.com</a></li>
-        <li>Instagram <a href="https://instagram.com/">@aanchal.handloom</a></li>
-        <li>Studio visits in Kolkata, by appointment</li>
-      </ul>
-    </div>
-
-    <form id="enquiryForm">
-      <label>Your name
-        <input type="text" id="f-name" name="name" autocomplete="name" required>
-      </label>
-      <label>Occasion
-        <select id="f-occasion">
-          <option>Wedding</option>
-          <option>Festival or puja</option>
-          <option>Gift</option>
-          <option>Everyday wear</option>
-          <option>Not sure yet</option>
-        </select>
-      </label>
-      <label>Budget
-        <select id="f-budget">
-          <option>Under ₹5,000</option>
-          <option>₹5,000 – ₹15,000</option>
-          <option>₹15,000 – ₹30,000</option>
-          <option>Above ₹30,000</option>
-        </select>
-      </label>
-      <label>Anything else
-        <textarea id="f-note" placeholder="Colours you like, a piece you saw above, when you need it by"></textarea>
-      </label>
-      <button class="btn btn-solid" type="submit">Send on WhatsApp</button>
-      <p class="hint">We reply within a day, usually sooner.</p>
-    </form>
-  </div>
-</section>
-
+<main class="wrap">
+  <h2>Our sarees</h2>
+  <p class="sub">Tap any saree to ask about it on WhatsApp.</p>
+  <div class="grid" id="grid"></div>
 </main>
 
-<div class="border-band" aria-hidden="true"></div>
-<footer>
+<section class="contact">
   <div class="wrap">
-    <div class="cols">
-      <div>
-        <h4>Aanchal Handloom</h4>
-        <p>Handwoven sarees, bought straight from the loom.</p>
-      </div>
-      <div>
-        <h4>Shop</h4>
-        <ul>
-          <li><a href="#weaves">Weaves</a></li>
-          <li><a href="#collection">In stock</a></li>
-          <li><a href="#how">How to order</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Care</h4>
-        <ul>
-          <li>Dry clean silk only</li>
-          <li>Refold sarees every few months</li>
-          <li>Seven-day returns, unworn</li>
-        </ul>
-      </div>
-    </div>
-    <p class="fine">© <span id="yr"></span> Aanchal Handloom. GSTIN 00XXXXX0000X0X0.</p>
+    <h2>Want to see more?</h2>
+    <p>Message us and we will send photos and videos of whatever you like.</p>
+    <a class="btn" id="mainWa" href="#">Message on WhatsApp</a>
+    <ul class="lines">
+      <li>Call <a href="tel:+919999999999">+91 99999 99999</a></li>
+      <li>Instagram <a href="https://instagram.com/">@meghbanni</a></li>
+    </ul>
   </div>
-</footer>
+</section>
+
+<div class="band" aria-hidden="true"></div>
+<footer>© <span id="yr"></span> Meghbanni</footer>
 
 <script>
-(function(){
-  // mobile menu
-  var btn=document.getElementById('menuBtn'), nav=document.getElementById('nav');
-  btn.addEventListener('click',function(){
-    var open=nav.classList.toggle('open');
-    btn.setAttribute('aria-expanded',open?'true':'false');
-  });
-  nav.addEventListener('click',function(e){
-    if(e.target.tagName==='A'){nav.classList.remove('open');btn.setAttribute('aria-expanded','false');}
+/* ═══════════════════════════════════════════════════════════
+   EDIT ONLY THIS PART
+
+   1. Your WhatsApp number: country code + number, digits only.
+   2. Your sarees: one line each. Copy a line to add another,
+      delete a line to remove one.
+      img  →  the photo's filename inside the images folder
+      sold →  add   sold: true   when a saree is gone
+   ═══════════════════════════════════════════════════════════ */
+
+var PHONE = "919999999999";
+
+var SAREES = [
+  { name: "Red Kanjivaram silk",   price: "₹4,500", img: "images/saree-1.jpg" },
+  { name: "Blue Banarasi",         price: "₹3,200", img: "images/saree-2.jpg" },
+  { name: "Cream Jamdani",         price: "₹2,800", img: "images/saree-3.jpg" },
+  { name: "Yellow Chanderi",       price: "₹1,900", img: "images/saree-4.jpg" },
+  { name: "Green cotton handloom", price: "₹1,200", img: "images/saree-5.jpg" },
+  { name: "Purple ikat",           price: "₹3,600", img: "images/saree-6.jpg", sold: true },
+  { name: "Golden tussar",         price: "₹2,400", img: "images/saree-7.jpg" },
+  { name: "Grey linen",            price: "₹1,600", img: "images/saree-8.jpg" }
+];
+
+/* ═══════ nothing below this line needs editing ═══════ */
+
+(function () {
+  var grid = document.getElementById("grid");
+  var tints = ["#8E1B2E,#C2415A","#1F3C63,#3E6EA8","#CFC7AF,#E8E2D2","#D8A24A,#F0D08A",
+               "#2C5E4F,#4E8A73","#4A2C62,#7C5498","#6E5232,#A57C49","#8A8D96,#C4C7CE"];
+
+  SAREES.forEach(function (s, i) {
+    var card = document.createElement("article");
+    card.className = "card";
+
+    var pic = document.createElement("div");
+    pic.className = "pic";
+    pic.style.background = "linear-gradient(150deg," + tints[i % tints.length] + ")";
+
+    if (s.img) {
+      var im = document.createElement("img");
+      im.src = s.img;
+      im.alt = s.name;
+      im.loading = "lazy";
+      im.onerror = function () { this.remove(); };
+      pic.appendChild(im);
+    }
+    if (s.sold) {
+      var tag = document.createElement("div");
+      tag.className = "sold";
+      tag.textContent = "Sold";
+      pic.appendChild(tag);
+    }
+
+    var body = document.createElement("div");
+    body.className = "card-body";
+
+    var h = document.createElement("h3");
+    h.textContent = s.name;
+
+    var p = document.createElement("p");
+    p.className = "price";
+    p.textContent = s.price;
+
+    body.appendChild(h);
+    body.appendChild(p);
+
+    if (!s.sold) {
+      var a = document.createElement("a");
+      a.className = "ask";
+      a.target = "_blank";
+      a.rel = "noopener";
+      a.textContent = "Ask about this";
+      a.href = "https://wa.me/" + PHONE + "?text=" +
+        encodeURIComponent("Hello, I am interested in the " + s.name + " (" + s.price + ").");
+      body.appendChild(a);
+    }
+
+    card.appendChild(pic);
+    card.appendChild(body);
+    grid.appendChild(card);
   });
 
-  // collection filter
-  var chips=document.querySelectorAll('.chip'),
-      pieces=Array.prototype.slice.call(document.querySelectorAll('.piece')),
-      count=document.getElementById('count');
-  function apply(f){
-    var shown=0;
-    pieces.forEach(function(p){
-      var ok = f==='all' || p.dataset.cat.split(' ').indexOf(f)>-1;
-      p.hidden=!ok; if(ok) shown++;
-    });
-    count.textContent = shown+(shown===1?' saree':' sarees')+' shown.';
-  }
-  chips.forEach(function(c){
-    c.addEventListener('click',function(){
-      chips.forEach(function(x){x.setAttribute('aria-pressed','false');});
-      c.setAttribute('aria-pressed','true');
-      apply(c.dataset.filter);
-    });
-  });
-  apply('all');
-
-  // enquiry -> WhatsApp
-  var PHONE='919999999999'; // your number, country code first, digits only
-  document.getElementById('enquiryForm').addEventListener('submit',function(e){
-    e.preventDefault();
-    var msg='Hello Aanchal Handloom.'
-      +'\nName: '+document.getElementById('f-name').value
-      +'\nOccasion: '+document.getElementById('f-occasion').value
-      +'\nBudget: '+document.getElementById('f-budget').value;
-    var note=document.getElementById('f-note').value.trim();
-    if(note) msg+='\nNotes: '+note;
-    window.open('https://wa.me/'+PHONE+'?text='+encodeURIComponent(msg),'_blank','noopener');
-  });
-
-  document.getElementById('yr').textContent=new Date().getFullYear();
+  document.getElementById("mainWa").href =
+    "https://wa.me/" + PHONE + "?text=" + encodeURIComponent("Hello, I would like to see your sarees.");
+  document.getElementById("yr").textContent = new Date().getFullYear();
 })();
 </script>
 </body>
