@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Meghbanni — Sarees</title>
+<title>মেঘবাণী — শাড়ি</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;600&family=Hind+Siliguri:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --khadi:#F0EADC; --surface:#FBF8F2; --ink:#1C1726; --ink-soft:#57506A;
   --madder:#97262B; --zari:#B08526; --line:rgba(28,23,38,.16);
-  --display:'Marcellus',Georgia,serif; --text:'Karla',Arial,sans-serif;
+  --display:'Noto Serif Bengali','Noto Serif',serif;
+  --text:'Hind Siliguri','Noto Sans Bengali',Arial,sans-serif;
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px);
   padding-bottom:env(safe-area-inset-bottom,0px);
@@ -27,12 +28,12 @@
 *,*::before,*::after{box-sizing:inherit}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{margin:0;background:var(--khadi);color:var(--ink);font-family:var(--text);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--khadi);color:var(--ink);
+  font-family:var(--text);font-size:17px;line-height:1.8;-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%}
 :focus-visible{outline:2px solid var(--madder);outline-offset:3px}
 .wrap{max-width:1020px;margin:0 auto;padding:0 18px}
 
-/* gold temple border, the one decorative device */
 .band{height:0}
 .band::before{content:"";display:block;height:4px;background:var(--zari);opacity:.85}
 .band::after{content:"";display:block;height:10px;opacity:.85;
@@ -41,40 +42,38 @@ img{display:block;max-width:100%}
   background-size:13px 13px}
 
 header{padding:26px 0 20px;text-align:center}
-header h1{font-family:var(--display);font-weight:400;font-size:clamp(30px,7vw,44px);margin:0;letter-spacing:.04em}
-header p{margin:8px 0 0;color:var(--ink-soft);font-size:16px}
-
-/* shop photo */
+header h1{font-family:var(--display);font-weight:600;font-size:clamp(30px,7vw,44px);margin:0;line-height:1.4}
+header p{margin:6px 0 0;color:var(--ink-soft);font-size:17px}
 .shopshot{margin:22px 0 0;aspect-ratio:16/9;overflow:hidden;background:var(--surface)}
 .shopshot img{width:100%;height:100%;object-fit:cover}
 
-h2{font-family:var(--display);font-weight:400;font-size:26px;margin:44px 0 6px;text-align:center}
-.sub{text-align:center;color:var(--ink-soft);margin:0 0 26px;font-size:15px}
+h2{font-family:var(--display);font-weight:600;font-size:26px;margin:44px 0 6px;text-align:center;line-height:1.5}
+.sub{text-align:center;color:var(--ink-soft);margin:0 0 26px;font-size:16px}
 
-/* saree grid */
 .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding-bottom:10px}
 @media (max-width:860px){.grid{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:620px){.grid{grid-template-columns:repeat(2,1fr);gap:14px}}
 .card{background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column}
-.pic{position:relative;aspect-ratio:3/4;overflow:hidden;background:linear-gradient(150deg,#8E1B2E,#C2415A 50%,#7A1226)}
+.pic{position:relative;aspect-ratio:3/4;overflow:hidden}
 .pic img{width:100%;height:100%;object-fit:cover}
-.sold{position:absolute;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;
-  background:rgba(28,23,38,.55);color:#FFF6E6;font-family:var(--display);font-size:19px;letter-spacing:.1em}
-.card-body{padding:12px 13px 14px;display:flex;flex-direction:column;gap:4px;flex:1}
-.card h3{font-family:var(--display);font-weight:400;font-size:17px;margin:0;line-height:1.3}
-.price{font-size:16px;font-weight:700;margin:0}
-.ask{margin-top:auto;padding-top:10px;font-size:14px;color:var(--madder);text-decoration:none;border-bottom:1px solid transparent;align-self:flex-start}
+.sold{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:rgba(28,23,38,.58);color:#FFF6E6;font-family:var(--display);font-size:17px;text-align:center;padding:10px}
+.card-body{padding:12px 13px 14px;display:flex;flex-direction:column;gap:2px;flex:1}
+.card h3{font-family:var(--display);font-weight:400;font-size:17px;margin:0;line-height:1.55}
+.price{font-size:17px;font-weight:600;margin:4px 0 0}
+.ask{margin-top:auto;padding-top:10px;font-size:15px;color:var(--madder);text-decoration:none;
+  border-bottom:1px solid transparent;align-self:flex-start;line-height:1.5}
 .ask:hover{border-bottom-color:var(--madder)}
 
-/* contact */
 .contact{background:var(--surface);margin-top:52px;padding:38px 0 42px;text-align:center}
 .contact h2{margin-top:0}
 .contact p{margin:0 0 18px;color:var(--ink-soft)}
-.btn{display:inline-block;background:var(--madder);color:#FFF8EE;text-decoration:none;font-size:16px;font-weight:500;padding:14px 30px}
+.btn{display:inline-block;background:var(--madder);color:#FFF8EE;text-decoration:none;
+  font-size:17px;font-weight:500;padding:13px 30px;font-family:var(--text)}
 .btn:hover{background:#7d1f23}
 .lines{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:8px;font-size:16px}
 .lines a{color:inherit;text-decoration:none;border-bottom:1px solid var(--zari)}
-footer{padding:22px 0 30px;text-align:center;font-size:13px;color:var(--ink-soft)}
+footer{padding:22px 0 30px;text-align:center;font-size:14px;color:var(--ink-soft)}
 </style>
 </head>
 <body>
@@ -82,58 +81,60 @@ footer{padding:22px 0 30px;text-align:center;font-size:13px;color:var(--ink-soft
 <div class="band" aria-hidden="true"></div>
 
 <header class="wrap">
-  <h1>Meghbanni</h1>
-  <p>Sarees available now</p>
-  <!-- SHOP PHOTO: put your shop or a drape photo at images/shop.jpg -->
-  <div class="shopshot"><img src="images/shop.jpg" alt="Our collection" onerror="this.style.display='none'"></div>
+  <h1>মেঘবাণী</h1>
+  <p>হাতে বোনা শাড়ির সংগ্রহ</p>
+  <!-- দোকানের ছবি: images/shop.jpg নামে আপলোড করুন -->
+  <div class="shopshot"><img src="images/shop.jpg" alt="আমাদের সংগ্রহ" onerror="this.style.display='none'"></div>
 </header>
 
 <main class="wrap">
-  <h2>Our sarees</h2>
-  <p class="sub">Tap any saree to ask about it on WhatsApp.</p>
+  <h2>এখন যা আছে</h2>
+  <p class="sub">যে শাড়িটি পছন্দ হয়েছে, তার নিচে ক্লিক করে হোয়াটসঅ্যাপে জানান।</p>
   <div class="grid" id="grid"></div>
 </main>
 
 <section class="contact">
   <div class="wrap">
-    <h2>Want to see more?</h2>
-    <p>Message us and we will send photos and videos of whatever you like.</p>
-    <a class="btn" id="mainWa" href="#">Message on WhatsApp</a>
+    <h2>আরও দেখতে চান?</h2>
+    <p>বার্তা পাঠান, আমরা আরও ছবি ও ভিডিও পাঠিয়ে দেব।</p>
+    <a class="btn" id="mainWa" href="#">হোয়াটসঅ্যাপে বার্তা পাঠান</a>
     <ul class="lines">
-      <li>Call <a href="tel:+919999999999">+91 99999 99999</a></li>
-      <li>Instagram <a href="https://instagram.com/">@meghbanni</a></li>
+      <li>ফোন <a href="tel:+919999999999">+91 99999 99999</a></li>
+      <li>ইনস্টাগ্রাম <a href="https://instagram.com/">@meghbanni</a></li>
     </ul>
   </div>
 </section>
 
 <div class="band" aria-hidden="true"></div>
-<footer>© <span id="yr"></span> Meghbanni</footer>
+<footer>© <span id="yr"></span> মেঘবাণী</footer>
 
 <script>
 /* ═══════════════════════════════════════════════════════════
-   EDIT ONLY THIS PART
+   শুধু এই অংশটুকু বদলাবেন
 
-   1. Your WhatsApp number: country code + number, digits only.
-   2. Your sarees: one line each. Copy a line to add another,
-      delete a line to remove one.
-      img  →  the photo's filename inside the images folder
-      sold →  add   sold: true   when a saree is gone
+   ১. PHONE — আপনার হোয়াটসঅ্যাপ নম্বর, ৯১ দিয়ে শুরু, শুধু সংখ্যা।
+   ২. প্রতিটি শাড়ি একটি লাইন। নতুন শাড়ি যোগ করতে একটি লাইন কপি
+      করে নিচে বসান, বিক্রি হয়ে গেলে লাইনটি মুছে দিন।
+        name  = শাড়ির নাম
+        price = দাম
+        img   = images ফোল্ডারে ছবির নাম
+        sold: true  লিখলে "বিক্রি হয়ে গেছে" লেখা দেখাবে
    ═══════════════════════════════════════════════════════════ */
 
 var PHONE = "919999999999";
 
 var SAREES = [
-  { name: "Red Kanjivaram silk",   price: "₹4,500", img: "images/saree-1.jpg" },
-  { name: "Blue Banarasi",         price: "₹3,200", img: "images/saree-2.jpg" },
-  { name: "Cream Jamdani",         price: "₹2,800", img: "images/saree-3.jpg" },
-  { name: "Yellow Chanderi",       price: "₹1,900", img: "images/saree-4.jpg" },
-  { name: "Green cotton handloom", price: "₹1,200", img: "images/saree-5.jpg" },
-  { name: "Purple ikat",           price: "₹3,600", img: "images/saree-6.jpg", sold: true },
-  { name: "Golden tussar",         price: "₹2,400", img: "images/saree-7.jpg" },
-  { name: "Grey linen",            price: "₹1,600", img: "images/saree-8.jpg" }
+  { name: "লাল কাঞ্জিভরম সিল্ক", price: "₹৪,৫০০", img: "images/saree-1.jpg" },
+  { name: "নীল বেনারসি",          price: "₹৩,২০০", img: "images/saree-2.jpg" },
+  { name: "সাদা ঢাকাই জামদানি",   price: "₹২,৮০০", img: "images/saree-3.jpg" },
+  { name: "হলুদ চান্দেরি",        price: "₹১,৯০০", img: "images/saree-4.jpg" },
+  { name: "সবুজ সুতির তাঁত",      price: "₹১,২০০", img: "images/saree-5.jpg" },
+  { name: "বেগুনি ইকাত",          price: "₹৩,৬০০", img: "images/saree-6.jpg", sold: true },
+  { name: "সোনালি তসর",           price: "₹২,৪০০", img: "images/saree-7.jpg" },
+  { name: "ধূসর লিনেন",           price: "₹১,৬০০", img: "images/saree-8.jpg" }
 ];
 
-/* ═══════ nothing below this line needs editing ═══════ */
+/* ═══════ এর নিচে কিছু বদলানোর দরকার নেই ═══════ */
 
 (function () {
   var grid = document.getElementById("grid");
@@ -150,16 +151,14 @@ var SAREES = [
 
     if (s.img) {
       var im = document.createElement("img");
-      im.src = s.img;
-      im.alt = s.name;
-      im.loading = "lazy";
+      im.src = s.img; im.alt = s.name; im.loading = "lazy";
       im.onerror = function () { this.remove(); };
       pic.appendChild(im);
     }
     if (s.sold) {
       var tag = document.createElement("div");
       tag.className = "sold";
-      tag.textContent = "Sold";
+      tag.textContent = "বিক্রি হয়ে গেছে";
       pic.appendChild(tag);
     }
 
@@ -181,9 +180,9 @@ var SAREES = [
       a.className = "ask";
       a.target = "_blank";
       a.rel = "noopener";
-      a.textContent = "Ask about this";
+      a.textContent = "এই শাড়িটি সম্পর্কে জানুন";
       a.href = "https://wa.me/" + PHONE + "?text=" +
-        encodeURIComponent("Hello, I am interested in the " + s.name + " (" + s.price + ").");
+        encodeURIComponent("নমস্কার, আমি " + s.name + " (" + s.price + ") শাড়িটি সম্পর্কে জানতে চাই।");
       body.appendChild(a);
     }
 
@@ -193,8 +192,11 @@ var SAREES = [
   });
 
   document.getElementById("mainWa").href =
-    "https://wa.me/" + PHONE + "?text=" + encodeURIComponent("Hello, I would like to see your sarees.");
-  document.getElementById("yr").textContent = new Date().getFullYear();
+    "https://wa.me/" + PHONE + "?text=" + encodeURIComponent("নমস্কার, আমি আপনাদের শাড়িগুলি দেখতে চাই।");
+
+  var yr = new Date().getFullYear().toString();
+  var bn = "০১২৩৪৫৬৭৮৯";
+  document.getElementById("yr").textContent = yr.replace(/[0-9]/g, function (d) { return bn[+d]; });
 })();
 </script>
 </body>
