@@ -74,6 +74,29 @@ h2{font-family:var(--display);font-weight:600;font-size:26px;margin:44px 0 6px;t
 .lines{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:8px;font-size:16px}
 .lines a{color:inherit;text-decoration:none;border-bottom:1px solid var(--zari)}
 footer{padding:22px 0 30px;text-align:center;font-size:14px;color:var(--ink-soft)}
+
+/* ── single saree page ── */
+a.pic{display:block}
+.product{padding-top:22px;padding-bottom:10px}
+.back{color:var(--madder);text-decoration:none;font-size:16px}
+.back:hover{text-decoration:underline}
+.layout{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start;margin-top:16px}
+@media (max-width:760px){.layout{grid-template-columns:1fr;gap:22px}}
+.photo{position:relative;background:var(--surface);border:1px solid var(--line)}
+.photo img{width:100%;height:auto;max-height:82vh;object-fit:contain;margin:0 auto}
+.photo.empty{aspect-ratio:3/4}
+.photo .soldtag{position:absolute;top:14px;left:14px;background:var(--ink);color:var(--khadi);font-size:14px;padding:3px 12px}
+.thumbs{display:flex;gap:10px;margin-top:12px;overflow-x:auto;padding-bottom:4px}
+.thumbs button{flex:0 0 72px;height:96px;padding:0;border:2px solid transparent;background:var(--surface);cursor:pointer}
+.thumbs button[aria-current="true"]{border-color:var(--madder)}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+.info h1{font-family:var(--display);font-weight:600;font-size:clamp(26px,5vw,36px);margin:0;line-height:1.45}
+.p-price{font-size:26px;font-weight:600;margin:6px 0 18px}
+.about{white-space:pre-line;margin:0 0 26px}
+.wa-btn{display:inline-block;background:#1f8f4e;color:#fff;text-decoration:none;font-size:17px;font-weight:500;padding:13px 28px}
+.wa-btn:hover{background:#17733e}
+.hint{font-size:14px;color:var(--ink-soft);margin:12px 0 0}
+.notice{text-align:center;color:var(--madder);margin:24px 12px 0}
 </style>
 </head>
 <body>
@@ -89,9 +112,14 @@ footer{padding:22px 0 30px;text-align:center;font-size:14px;color:var(--ink-soft
 <div class="shopshot"><img src="images/shop.jpg" alt="আমাদের সংগ্রহ" onerror="this.style.display='none'"></div>
 
 <main>
-  <h2>এখন যা আছে</h2>
-  <p class="sub">যে শাড়িটি পছন্দ হয়েছে, তার নিচে ক্লিক করে হোয়াটসঅ্যাপে জানান।</p>
-  <div class="grid" id="grid"></div>
+  <!-- সব শাড়ি -->
+  <div id="listView">
+    <h2>এখন যা আছে</h2>
+    <p class="sub">যে শাড়িটি পছন্দ হয়েছে, তাতে ক্লিক করে বিস্তারিত দেখুন।</p>
+    <div class="grid" id="grid"></div>
+  </div>
+  <!-- একটি শাড়ির পাতা -->
+  <div id="productView" class="wrap product" hidden></div>
 </main>
 
 <section class="contact">
@@ -120,6 +148,9 @@ footer{padding:22px 0 30px;text-align:center;font-size:14px;color:var(--ink-soft
         price = দাম
         img   = images ফোল্ডারে ছবির নাম
         sold: true  লিখলে "বিক্রি হয়ে গেছে" লেখা দেখাবে
+        about: "..."   শাড়ি সম্পর্কে লেখা, শাড়ির নিজের পাতায় দেখাবে
+                       (নতুন লাইনের জন্য \n লিখুন)
+        photos: ["images/...", "images/..."]   আরও ছবি থাকলে
    ═══════════════════════════════════════════════════════════ */
 
 var PHONE = "919999999999";
@@ -136,74 +167,149 @@ var SAREES = [
   { name: "সোনাঝুরি",           price: "₹৬৪৯", img: "images/sharee-9.jpg" },
   { name: "সোহাগ লতা ",           price: "₹১৭৫০", img: "images/sharee-10.jpg" },
   { name: "মেঘমালা",           price: "₹১০৫০", img: "images/sharee-11.jpg" },
-  { name: "লাবণ্য",           price: "₹৯৯৯", img: "images/sharee-12.jpg" }
+  { name: "লাবণ্য",           price: "₹৯৯৯", img: "images/sharee-12.jpg", about: `" মেঘবরণীর সাজে সিঁদুর ছোঁয়ার আবেশ\nএ শুধু যেন সাজ নয় এক অনুভব করা মুহূর্ত ।।"
+
+নাম: ধূপছায়া মঙ্গলগিরি` }
 ];
 
 /* ═══════ এর নিচে কিছু বদলানোর দরকার নেই ═══════ */
 
 (function () {
-  var grid = document.getElementById("grid");
   var tints = ["#8E1B2E,#C2415A","#1F3C63,#3E6EA8","#CFC7AF,#E8E2D2","#D8A24A,#F0D08A",
                "#2C5E4F,#4E8A73","#4A2C62,#7C5498","#6E5232,#A57C49","#8A8D96,#C4C7CE"];
-
-  SAREES.forEach(function (s, i) {
-    var card = document.createElement("article");
-    card.className = "card";
-
-    var pic = document.createElement("div");
-    pic.className = "pic";
-    var tint = "linear-gradient(150deg," + tints[i % tints.length] + ")";
-
-    if (s.img) {
-      var im = document.createElement("img");
-      im.src = s.img; im.alt = s.name; im.loading = "lazy";
-      im.onerror = function () { pic.style.background = tint; this.remove(); };
-      pic.appendChild(im);
-    } else {
-      pic.style.background = tint;
-    }
-    if (s.sold) {
-      var tag = document.createElement("div");
-      tag.className = "sold";
-      tag.textContent = "বিক্রি হয়ে গেছে";
-      pic.appendChild(tag);
-    }
-
-    var body = document.createElement("div");
-    body.className = "card-body";
-
-    var h = document.createElement("h3");
-    h.textContent = s.name;
-
-    var p = document.createElement("p");
-    p.className = "price";
-    p.textContent = s.price;
-
-    body.appendChild(h);
-    body.appendChild(p);
-
-    if (!s.sold) {
-      var a = document.createElement("a");
-      a.className = "ask";
-      a.target = "_blank";
-      a.rel = "noopener";
-      a.textContent = "এই শাড়িটি সম্পর্কে জানুন";
-      a.href = "https://wa.me/" + PHONE + "?text=" +
-        encodeURIComponent("নমস্কার, আমি " + s.name + " (" + s.price + ") শাড়িটি সম্পর্কে জানতে চাই।");
-      body.appendChild(a);
-    }
-
-    card.appendChild(pic);
-    card.appendChild(body);
-    grid.appendChild(card);
-  });
+  var bnDigits = "০১২৩৪৫৬৭৮৯";
+  function bn(t) { return String(t).replace(/[0-9]/g, function (d) { return bnDigits[+d]; }); }
+  function tintOf(i) { return "linear-gradient(150deg," + tints[i % tints.length] + ")"; }
+  // each saree's page name comes from its photo name, e.g. sharee-2
+  function sid(s, i) { return s.img ? s.img.split("/").pop().replace(/\.[^.]+$/, "") : String(i + 1); }
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  var homeUrl = location.pathname;
 
   document.getElementById("mainWa").href =
     "https://wa.me/" + PHONE + "?text=" + encodeURIComponent("নমস্কার, আমি আপনাদের শাড়িগুলি দেখতে চাই।");
+  document.getElementById("yr").textContent = bn(new Date().getFullYear());
 
-  var yr = new Date().getFullYear().toString();
-  var bn = "০১২৩৪৫৬৭৮৯";
-  document.getElementById("yr").textContent = yr.replace(/[0-9]/g, function (d) { return bn[+d]; });
+  var want = new URLSearchParams(location.search).get("s");
+  var idx = -1;
+  if (want) {
+    for (var k = 0; k < SAREES.length; k++) if (sid(SAREES[k], k) === want) { idx = k; break; }
+  }
+  if (idx >= 0) { showProduct(SAREES[idx], idx); return; }
+  if (want) {
+    var note = el("p", "notice", "এই শাড়িটি আর পাওয়া যাচ্ছে না। নিচে বাকি শাড়িগুলি দেখুন।");
+    document.getElementById("listView").prepend(note);
+  }
+  showGrid();
+
+  /* ── all sarees ── */
+  function showGrid() {
+    var grid = document.getElementById("grid");
+    SAREES.forEach(function (s, i) {
+      var link = "?s=" + encodeURIComponent(sid(s, i));
+      var card = el("article", "card");
+
+      var pic = el(s.sold ? "div" : "a", "pic");
+      if (!s.sold) { pic.href = link; pic.setAttribute("aria-label", s.name); }
+      if (s.img) {
+        var im = el("img");
+        im.src = s.img; im.alt = s.name; im.loading = "lazy";
+        im.onerror = function () { pic.style.background = tintOf(i); this.remove(); };
+        pic.appendChild(im);
+      } else {
+        pic.style.background = tintOf(i);
+      }
+      if (s.sold) pic.appendChild(el("div", "sold", "বিক্রি হয়ে গেছে"));
+
+      var body = el("div", "card-body");
+      body.appendChild(el("h3", null, s.name));
+      body.appendChild(el("p", "price", s.price));
+      if (!s.sold) {
+        var a = el("a", "ask", "এই শাড়িটি সম্পর্কে জানুন");
+        a.href = link;
+        body.appendChild(a);
+      }
+      card.appendChild(pic);
+      card.appendChild(body);
+      grid.appendChild(card);
+    });
+  }
+
+  /* ── one saree ── */
+  function showProduct(s, i) {
+    document.getElementById("listView").hidden = true;
+    var view = document.getElementById("productView");
+    view.hidden = false;
+    document.title = s.name + " — মেঘবরণী";
+
+    var back = el("a", "back", "← সব শাড়ি দেখুন");
+    back.href = homeUrl;
+    view.appendChild(back);
+
+    var layout = el("div", "layout");
+
+    // photos
+    var gallery = el("div");
+    var photo = el("div", "photo");
+    var all = [];
+    if (s.img) all.push(s.img);
+    (s.photos || []).forEach(function (x) { if (x) all.push(x); });
+    var big = null;
+    if (all.length) {
+      big = el("img");
+      big.src = all[0]; big.alt = s.name;
+      big.onerror = function () { photo.classList.add("empty"); photo.style.background = tintOf(i); this.remove(); };
+      photo.appendChild(big);
+    } else {
+      photo.classList.add("empty");
+      photo.style.background = tintOf(i);
+    }
+    if (s.sold) photo.appendChild(el("span", "soldtag", "বিক্রি হয়ে গেছে"));
+    gallery.appendChild(photo);
+
+    if (all.length > 1 && big) {
+      var thumbs = el("div", "thumbs");
+      all.forEach(function (src, n) {
+        var b = el("button");
+        b.type = "button";
+        b.setAttribute("aria-label", "ছবি " + bn(n + 1));
+        b.setAttribute("aria-current", n === 0 ? "true" : "false");
+        var t = el("img"); t.src = src; t.alt = "";
+        b.appendChild(t);
+        b.addEventListener("click", function () {
+          big.src = src;
+          Array.prototype.forEach.call(thumbs.children, function (x) { x.setAttribute("aria-current", "false"); });
+          b.setAttribute("aria-current", "true");
+        });
+        thumbs.appendChild(b);
+      });
+      gallery.appendChild(thumbs);
+    }
+
+    // text + WhatsApp
+    var info = el("div", "info");
+    info.appendChild(el("h1", null, s.name));
+    info.appendChild(el("p", "p-price", s.price));
+    info.appendChild(el("p", "about", s.about || "এই শাড়িটি সম্পর্কে আরও জানতে বা আরও ছবি দেখতে হোয়াটসঅ্যাপে বার্তা পাঠান।"));
+
+    var msg = s.sold
+      ? "নমস্কার, " + s.name + " শাড়িটি বিক্রি হয়ে গেছে দেখলাম। এরকম আর কোনো শাড়ি আছে কি?"
+      : "নমস্কার, আমি " + s.name + " (" + s.price + ") শাড়িটি সম্পর্কে জানতে চাই।";
+    msg += "\n" + location.href;
+    var wa = el("a", "wa-btn", s.sold ? "এরকম শাড়ি আছে কিনা জানুন" : "হোয়াটসঅ্যাপে জানুন");
+    wa.href = "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(msg);
+    wa.target = "_blank"; wa.rel = "noopener";
+    info.appendChild(wa);
+    info.appendChild(el("p", "hint", "বার্তার সঙ্গে এই শাড়ির লিঙ্ক যাবে, তাই আমরা বুঝতে পারব আপনি কোনটার কথা বলছেন।"));
+
+    layout.appendChild(gallery);
+    layout.appendChild(info);
+    view.appendChild(layout);
+  }
 })();
 </script>
 </body>
