@@ -44,8 +44,8 @@ img{display:block;max-width:100%}
 header{padding:26px 0 20px;text-align:center}
 header h1{font-family:var(--display);font-weight:600;font-size:clamp(30px,7vw,44px);margin:0;line-height:1.4}
 header p{margin:6px 0 0;color:var(--ink-soft);font-size:17px}
-.shopshot{margin:22px 0 0;aspect-ratio:16/9;overflow:hidden;background:var(--surface)}
-.shopshot img{width:100%;height:100%;object-fit:cover}
+.shopshot{margin:0;width:100%}
+.shopshot img{width:100%;height:auto;display:block}
 
 h2{font-family:var(--display);font-weight:600;font-size:26px;margin:44px 0 6px;text-align:center;line-height:1.5}
 .sub{text-align:center;color:var(--ink-soft);margin:0 0 26px;font-size:16px}
@@ -54,8 +54,8 @@ h2{font-family:var(--display);font-weight:600;font-size:26px;margin:44px 0 6px;t
 @media (max-width:860px){.grid{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:620px){.grid{grid-template-columns:repeat(2,1fr);gap:14px}}
 .card{background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column}
-.pic{position:relative;aspect-ratio:3/4;overflow:hidden}
-.pic img{width:100%;height:100%;object-fit:cover}
+.pic{position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--surface)}
+.pic img{width:100%;height:100%;object-fit:contain}
 .sold{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
   background:rgba(28,23,38,.58);color:#FFF6E6;font-family:var(--display);font-size:17px;text-align:center;padding:10px}
 .card-body{padding:12px 13px 14px;display:flex;flex-direction:column;gap:2px;flex:1}
@@ -81,13 +81,14 @@ footer{padding:22px 0 30px;text-align:center;font-size:14px;color:var(--ink-soft
 <div class="band" aria-hidden="true"></div>
 
 <header class="wrap">
-  <h1>মেঘবরণী</h1>
-  <p>হাতে বোনা শাড়ির সংগ্রহ</p>
-  <!-- দোকানের ছবি: images/shop.jpg নামে আপলোড করুন -->
-  <div class="shopshot"><img src="images/shop.jpg" alt="আমাদের সংগ্রহ" onerror="this.style.display='none'"></div>
+  <!-- <h1>মেঘবরণী</h1>
+  <p>হাতে বোনা শাড়ির সংগ্রহ</p> -->
 </header>
 
-<main class="wrap">
+<!-- দোকানের ছবি: images/shop.jpg নামে আপলোড করুন -->
+<div class="shopshot"><img src="images/shop.jpg" alt="আমাদের সংগ্রহ" onerror="this.style.display='none'"></div>
+
+<main>
   <h2>এখন যা আছে</h2>
   <p class="sub">যে শাড়িটি পছন্দ হয়েছে, তার নিচে ক্লিক করে হোয়াটসঅ্যাপে জানান।</p>
   <div class="grid" id="grid"></div>
@@ -124,14 +125,18 @@ footer{padding:22px 0 30px;text-align:center;font-size:14px;color:var(--ink-soft
 var PHONE = "919999999999";
 
 var SAREES = [
-  { name: "লাল কাঞ্জিভরম সিল্ক", price: "₹৪,৫০০", img: "images/saree-1.jpg" },
-  { name: "নীল বেনারসি",          price: "₹৩,২০০", img: "images/saree-2.jpg" },
-  { name: "সাদা ঢাকাই জামদানি",   price: "₹২,৮০০", img: "images/saree-3.jpg" },
-  { name: "হলুদ চান্দেরি",        price: "₹১,৯০০", img: "images/saree-4.jpg" },
-  { name: "সবুজ সুতির তাঁত",      price: "₹১,২০০", img: "images/saree-5.jpg" },
-  { name: "বেগুনি ইকাত",          price: "₹৩,৬০০", img: "images/saree-6.jpg", sold: true },
-  { name: "সোনালি তসর",           price: "₹২,৪০০", img: "images/saree-7.jpg" },
-  { name: "ধূসর লিনেন",           price: "₹১,৬০০", img: "images/saree-8.jpg" }
+  { name: "রক্তিমা", price: "₹ ৮৯৯", img: "images/sharee-1.jpg" , sold: true},
+  { name: "অরুণিমা",          price: "₹৬৯৯", img: "images/sharee-2.jpg" },
+  { name: "হেমলতা",   price: "₹৯৫০", img: "images/sharee-3.jpg" },
+  { name: "কাঞ্চনপ্রভা",        price: "₹৯৫০", img: "images/sharee-4.jpg" },
+  { name: "যামিনী",      price: "₹১১৯০", img: "images/sharee-5.jpg" },
+  { name: "বনানী",          price: "₹৬৪৯", img: "images/sharee-6.jpg" },
+  { name: "ঐশ্বর্যা",           price: "₹১০৯৯", img: "images/sharee-7.jpg" },
+  { name: "তসর - কথা",           price: "₹১১৯৯", img: "images/sharee-8.jpg" },
+  { name: "সোনাঝুরি",           price: "₹৬৪৯", img: "images/sharee-9.jpg" },
+  { name: "সোহাগ লতা ",           price: "₹১৭৫০", img: "images/sharee-10.jpg" },
+  { name: "মেঘমালা",           price: "₹১০৫০", img: "images/sharee-11.jpg" },
+  { name: "লাবণ্য",           price: "₹৯৯৯", img: "images/sharee-12.jpg" }
 ];
 
 /* ═══════ এর নিচে কিছু বদলানোর দরকার নেই ═══════ */
@@ -147,13 +152,15 @@ var SAREES = [
 
     var pic = document.createElement("div");
     pic.className = "pic";
-    pic.style.background = "linear-gradient(150deg," + tints[i % tints.length] + ")";
+    var tint = "linear-gradient(150deg," + tints[i % tints.length] + ")";
 
     if (s.img) {
       var im = document.createElement("img");
       im.src = s.img; im.alt = s.name; im.loading = "lazy";
-      im.onerror = function () { this.remove(); };
+      im.onerror = function () { pic.style.background = tint; this.remove(); };
       pic.appendChild(im);
+    } else {
+      pic.style.background = tint;
     }
     if (s.sold) {
       var tag = document.createElement("div");
