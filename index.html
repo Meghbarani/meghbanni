@@ -124,12 +124,12 @@ a.pic{display:block}
 
 <section class="contact">
   <div class="wrap">
-    <h2>আরও দেখতে চান?</h2>
-    <p>বার্তা পাঠান, আমরা আরও ছবি ও ভিডিও পাঠিয়ে দেব।</p>
+    <!-- <h2>আরও দেখতে চান?</h2>
+    <p>বার্তা পাঠান, আমরা আরও ছবি ও ভিডিও পাঠিয়ে দেব।</p> -->
     <a class="btn" id="mainWa" href="#">হোয়াটসঅ্যাপে বার্তা পাঠান</a>
     <ul class="lines">
-      <li>ফোন <a href="tel:+919999999999">+91 99999 99999</a></li>
-      <li>ইনস্টাগ্রাম <a href="https://instagram.com/">@meghbarani</a></li>
+      <li>ফোন: <a href="tel:+919999999999">+91 90647 76880</a></li>
+      <!-- <li>ইনস্টাগ্রাম <a href="https://instagram.com/">@meghbarani</a></li> -->
     </ul>
   </div>
 </section>
@@ -153,23 +153,21 @@ a.pic{display:block}
         photos: ["images/...", "images/..."]   আরও ছবি থাকলে
    ═══════════════════════════════════════════════════════════ */
 
-var PHONE = "919999999999";
+var PHONE = "+919064776880";
 
 var SAREES = [
-  { name: "রক্তিমা", price: "₹ ৮৯৯", img: "images/sharee-1.jpg" , sold: true},
-  { name: "অরুণিমা",          price: "₹৬৯৯", img: "images/sharee-2.jpg" },
-  { name: "হেমলতা",   price: "₹৯৫০", img: "images/sharee-3.jpg" },
-  { name: "কাঞ্চনপ্রভা",        price: "₹৯৫০", img: "images/sharee-4.jpg" },
-  { name: "যামিনী",      price: "₹১১৯০", img: "images/sharee-5.jpg" },
-  { name: "বনানী",          price: "₹৬৪৯", img: "images/sharee-6.jpg" },
-  { name: "ঐশ্বর্যা",           price: "₹১০৯৯", img: "images/sharee-7.jpg" },
-  { name: "তসর - কথা",           price: "₹১১৯৯", img: "images/sharee-8.jpg" },
-  { name: "সোনাঝুরি",           price: "₹৬৪৯", img: "images/sharee-9.jpg" },
-  { name: "সোহাগ লতা ",           price: "₹১৭৫০", img: "images/sharee-10.jpg" },
-  { name: "মেঘমালা",           price: "₹১০৫০", img: "images/sharee-11.jpg" },
-  { name: "লাবণ্য",           price: "₹৯৯৯", img: "images/sharee-12.jpg", about: `" মেঘবরণীর সাজে সিঁদুর ছোঁয়ার আবেশ\nএ শুধু যেন সাজ নয় এক অনুভব করা মুহূর্ত ।।"
-
-নাম: ধূপছায়া মঙ্গলগিরি` }
+  { name: "রক্তিমা",price: "₹ ৮৯৯", img: "images/sharee-1.jpg" , about: `" লালের আবেগ আর সোনালির ঐতিহ্য—এক শাড়িতে বাঙালিয়ানার চিরন্তন সৌন্দর্য।।"\n\nনাম: মাহেশ্বরী সিল্ক`, sold: true},
+  { name: "অরুণিমা",price: "₹৬৯৯", img: "images/sharee-2.jpg", about: `"শান্ত লালিমায় সোনালি স্বপ্ন—অরুণিমা।।"\n\nনাম: মাহেশ্বরী সিল্ক` },
+  { name: "হেমলতা",price: "₹৯৫০", img: "images/sharee-3.jpg", about: `" গভীর সবুজে সোনালি ছোঁয়া—ঐতিহ্যের এক অনন্য প্রকাশ ।।"\n\nনাম: কাকিনাড়া ` },
+  { name: "কাঞ্চনপ্রভা",price: "₹৯৫০", img: "images/sharee-4.jpg", about: `" সোনালি আভায় উৎসবের উজ্জ্বলতা…।।"\n\nনাম: কাকিনারা` },
+  { name: "যামিনী",price: "₹১১৯০", img: "images/sharee-5.jpg", about: `"গভীর বেগুনিতে রঙিন নকশার মায়াবী ছোঁয়া  ।।"\n\nনাম: বোমকাই ` },
+  { name: "বনানী",price: "₹৬৪৯", img: "images/sharee-6.jpg", about: `" প্রকৃতির ছোঁয়া এবার তোমার সাজে ।।"\n\nনাম: মঙ্গলগিরি` },
+  { name: "ঐশ্বর্যা",price: "₹১০৯৯", img: "images/sharee-7.jpg", about: `" লাল সাদার বাঙালিয়ানায় এবার আভিজাত্যের ছোঁয়া ।।"\n\nনাম: তসর সিল্ক` },
+  { name: "তসর - কথা",price: "₹১১৯৯", img: "images/sharee-8.jpg", about: `" এবার তসরের রঙে বাংলার চিরন্তনের ছোঁয়া  ।।"\n\nনাম: তসর সিল্ক` },
+  { name: "সোনাঝুরি",price: "₹৬৪৯", img: "images/sharee-9.jpg", about: `" রুদ্র ছায়ার সোনালী আভায়, তোমার সাজে মিশে থাকা যেন এক টুকরো সোনালী সকাল ।।"\n\nনাম: মঙ্গলগিরি` },
+  { name: "সোহাগ লতা ",price: "₹১৭৫০", img: "images/sharee-10.jpg", about: `" রাঙা  আবেগ আর সোনালীতে বোনা এক টুকরো গল্প ।।"\n\nনাম: বেনারসি আর্ট সিল্ক`},
+  { name: "মেঘমালা",price: "₹১০৫০", img: "images/sharee-11.jpg", about: `" তোমার সাথে থাকুক এক টুকরো নীরব মুগ্ধতা ।।"\n\nনাম: হ্যান্ডলুম সিল্ক` },
+  { name: "লাবণ্য",price: "₹৯৯৯", img: "images/sharee-12.jpg", about: `" মেঘবরণীর সাজে সিঁদুর ছোঁয়ার আবেশ, এ শুধু যেন সাজ নয় এক অনুভব করা মুহূর্ত ।।"\n\nনাম: ধূপছায়া মঙ্গলগিরি` }
 ];
 
 /* ═══════ এর নিচে কিছু বদলানোর দরকার নেই ═══════ */
@@ -213,8 +211,10 @@ var SAREES = [
       var link = "?s=" + encodeURIComponent(sid(s, i));
       var card = el("article", "card");
 
+      // var pic = el(s.sold ? "div" : "a", "pic");
+      // if (!s.sold) { pic.href = link; pic.setAttribute("aria-label", s.name);
       var pic = el(s.sold ? "div" : "a", "pic");
-      if (!s.sold) { pic.href = link; pic.setAttribute("aria-label", s.name); }
+      if (!s.sold) { pic.href = link; pic.setAttribute("aria-label", s.name);}
       if (s.img) {
         var im = el("img");
         im.src = s.img; im.alt = s.name; im.loading = "lazy";
@@ -228,11 +228,14 @@ var SAREES = [
       var body = el("div", "card-body");
       body.appendChild(el("h3", null, s.name));
       body.appendChild(el("p", "price", s.price));
-      if (!s.sold) {
-        var a = el("a", "ask", "এই শাড়িটি সম্পর্কে জানুন");
-        a.href = link;
-        body.appendChild(a);
-      }
+      // if (!s.sold) {
+      //   var a = el("a", "ask", "এই শাড়িটি সম্পর্কে জানুন");
+      //   a.href = link;
+      //   body.appendChild(a);
+      // }
+      var a = el("a", "ask", "এই শাড়িটি সম্পর্কে জানুন");
+      a.href = link;
+      body.appendChild(a);
       card.appendChild(pic);
       card.appendChild(body);
       grid.appendChild(card);
@@ -299,12 +302,11 @@ var SAREES = [
     var msg = s.sold
       ? "নমস্কার, " + s.name + " শাড়িটি বিক্রি হয়ে গেছে দেখলাম। এরকম আর কোনো শাড়ি আছে কি?"
       : "নমস্কার, আমি " + s.name + " (" + s.price + ") শাড়িটি সম্পর্কে জানতে চাই।";
-    msg += "\n" + location.href;
     var wa = el("a", "wa-btn", s.sold ? "এরকম শাড়ি আছে কিনা জানুন" : "হোয়াটসঅ্যাপে জানুন");
     wa.href = "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(msg);
     wa.target = "_blank"; wa.rel = "noopener";
     info.appendChild(wa);
-    info.appendChild(el("p", "hint", "বার্তার সঙ্গে এই শাড়ির লিঙ্ক যাবে, তাই আমরা বুঝতে পারব আপনি কোনটার কথা বলছেন।"));
+    info.appendChild(el("p", "hint", "বার্তার সঙ্গে এই শাড়ির নাম যাবে, তাই আমরা বুঝতে পারব আপনি কোনটার কথা বলছেন।"));
 
     layout.appendChild(gallery);
     layout.appendChild(info);
